@@ -125,7 +125,7 @@ public class Modo1 {
         
    
         String nombreArchivo = "output.txt"; 
-        String rutaArchivo = "src/" + nombreArchivo;
+        String rutaArchivo = "src/Caso/" + nombreArchivo;
         File archivoSalida = new File(rutaArchivo);
         
 
@@ -135,4 +135,11 @@ public class Modo1 {
             System.err.println("Error al generar el archivo: " + e.getMessage());
         }
     }
+
+
+
+    
+        
 }
+
+
