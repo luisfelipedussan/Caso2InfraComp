@@ -38,8 +38,16 @@ public class Modo2 {
      */
     public void comportamientoSistema(){
 
-        System.out.println(info);
-    }
-
+        Integer num_pages = 20000;
+        // Simulación del comportamiento del sistema de paginación
+        int num_page_faults = 0; //Compartido con enjececimiento
+        int[] page_table = new int[num_pages]; //Compartido con enjececimiento
+        Queue<Integer> page_queue = new LinkedList<>(); //Compartido con enjececimiento
+        Arrays.fill(page_table, -1);
+        for (int i=5;i<info.size();i++) { //Parte de Lector
+           
+            }
+        }
+        
     
 }
