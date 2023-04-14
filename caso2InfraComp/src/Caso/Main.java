@@ -1,3 +1,4 @@
+package Caso;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,7 +8,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        List<Integer> param = leerArchivo("src/input.txt");
+        List<Integer> param = leerArchivo("src/Caso/input.txt");
 
 
         Modo1 modo1 = new Modo1(param.get(0), param.get(4), param.get(1), param.get(2), param.get(3));
