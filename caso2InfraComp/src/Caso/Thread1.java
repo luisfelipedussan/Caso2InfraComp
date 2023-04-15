@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Thread1 extends Thread {
 
     public Buffer buffer;
-    public ArrayList<Info> tabla;
+    public ArrayList<Integer> tabla;
     public boolean estado;
 
-    public Thread1(Buffer buffer, ArrayList<Info> tabla) {
+    public Thread1(Buffer buffer, ArrayList<Integer> info2) {
         this.buffer = buffer;
-        this.tabla = tabla;
+        this.tabla = info2;
         this.estado = true;
     }
 
@@ -19,8 +19,8 @@ public class Thread1 extends Thread {
     public void run() {
 
         for (int i = 0; i<tabla.size(); i++){
-            Info actual = tabla.get(i);
-            int referenciaPagina = actual.getnumero();
+            Integer referenciaPagina = tabla.get(i);
+          
 
             try {
                 actualizarTablaMarcoPagina(referenciaPagina);
@@ -48,7 +48,7 @@ public class Thread1 extends Thread {
         return buffer;
     }
 
-    public ArrayList<Info> getTabla() {
+    public ArrayList<Integer> getTabla() {
         return tabla;
     }
 

@@ -1,53 +1,55 @@
 package Caso;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+
 
 
 public class Modo2 {
 
-    private Integer tamPag; // Tamaño de la página en bytes
-    private Integer marcos; // Número de marcos de página disponibles
-    private Integer numFilas; // Número de filas de la matriz
-    private Integer numCol; // Número de columnas de la matriz
-    private Integer tamEl; // Tamaño de los elementos de la matriz
-    private List<Integer> info;
+
+    private Integer marco; // Número de marcos de página disponibles
+  
+    private ArrayList<Integer> info;
     public Modo1 modo1;
     public Buffer buffer;
     private ArrayList<ArrayList<Integer>> paginas;
 
-    public Modo2(Integer tamPag, Integer numFilas, Integer numCol, Integer numRef, List<Integer> info2) throws InterruptedException {
-        this.tamPag = tamPag;
-        this.numFilas = numFilas;
-        this.numCol = numCol;
-
+    public Modo2(Integer marcos, ArrayList<Integer> info2) throws InterruptedException {
+        this.marco = marcos;
         this.info = info2;
-        //Buffer buffer = new Buffer(marcos);
-       // this.buffer = buffer;
-        /**
-        ---Hay que insertar la tabla de referencias 
-    
-        Thread1 thread1 = new Thread1(buffer,modo1.get);
-        */
-    }
-     /**
-     * 
-     */
-    public void comportamientoSistema(){
+        Buffer buffer = new Buffer(marco);
+        this.buffer = buffer;
 
-        Integer num_pages = 20000;
-        // Simulación del comportamiento del sistema de paginación
-        int num_page_faults = 0; //Compartido con enjececimiento
-        int[] page_table = new int[num_pages]; //Compartido con enjececimiento
-        Queue<Integer> page_queue = new LinkedList<>(); //Compartido con enjececimiento
-        Arrays.fill(page_table, -1);
-        for (int i=5;i<info.size();i++) { //Parte de Lector
-           
-            }
-        }
-        
+        Thread1 thread1 = new Thread1(buffer,info2);
+        Thread2 thread2 = new Thread2(buffer,thread1);
+
+         //Start the threads
+         thread1.start();
+ 
+         //Waits for both thread 1 and 2 to finish execution
+         thread1.join();
+         thread2.join();
+      //Output report
+      option2ResultConsole();
+
+
+  }
+
+  //--------------------------------------------------------------------------
+  // Methods
+  //--------------------------------------------------------------------------
+
+  public void option2ResultConsole(){
+
+
+
+      System.out.println("Page frames(Marcos de pagina): " + buffer.marcoPaginas + "\n\n");
+
+      System.out.println("Page errors(Fallos de pagina): " + buffer.falloPagina+ "\n\n");
+
     
+
+  }
+
+
 }

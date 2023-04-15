@@ -71,19 +71,21 @@ public class Modo1 {
         StringBuilder resultado = new StringBuilder();
     
         // Agregar inumFilasormación básica al resultado
-        resultado.append("TP=").append(tamPag).append("\n");
-        resultado.append("NF=").append(numFilas).append("\n");
-        resultado.append("NC=").append(numCol).append("\n");
-        resultado.append("NR=").append(tReferenumColias).append("\n");
+        resultado.append("TP=").append(tamPag).
+        append("\n");
+        resultado.append("NF=").append(numFilas).
+        append("\n");
+        resultado.append("NC=")
+        .append(numCol).append("\n");
+        resultado.append("NR=").append(tReferenumColias).
+        append("\n");
         
         // Crear listas para almacenar referenumColias de cada matriz
         List<String> lMatrizA = new ArrayList<String>();
         List<String> lMatrizB = new ArrayList<String>();
         List<String> lMatrizC = new ArrayList<String>();
         
-        // Iterar sobre cada matriz y cada elemento
         for (int k = 0; k < 3; k++) {
-            // Asignar letra a la matriz
             char matriz = (char) ('A' + k);
             // Iterar sobre cada fila de la matriz
 

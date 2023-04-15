@@ -6,35 +6,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+    private int marcosPagina;
     public static void main(String[] args) throws Exception {
 
-        List<Integer> info = leerArchivo("src/Caso/input.txt");
+        ArrayList<Integer> info = leerArchivo("src/Caso/input.txt");
         
-
+        int marcosPagina = info.get(4);
         Modo1 modo1 = new Modo1(info.get(0), info.get(4), info.get(1),
          info.get(2), info.get(3));
         modo1.sumarMatrices( info.get(1), info.get(2), info.get(3));
         modo1.comportamientoProceso();
 
-        /*
-         * 
-         
-        
-        Modo1 modo2 = new Modo1(info2.get(0), info2.get(4), info2.get(1),
-        info2.get(2), info2.get(3));
-        modo2.comportamientoSistema();
-        */
-        List<Integer> info2 = leerArchivoSalida("src/Caso/output.txt");
-        Modo2 modo2 = new Modo2(info.get(0), info.get(2), info.get(3),
-        info.get(4),info2);
-        modo2.comportamientoSistema();
+
+        ArrayList<Integer> info2 = leerArchivoSalida("src/Caso/output.txt");
+        Modo2 modo2 = new Modo2(marcosPagina,info2);
+
        
 
     }
 
-    public static List<Integer> leerArchivo(String filename) throws IOException {
+    public static ArrayList<Integer> leerArchivo(String filename) throws IOException {
 
-        List<Integer> info = new ArrayList<>();
+        ArrayList<Integer> info = new ArrayList<>();
         
         BufferedReader reader = new BufferedReader(new FileReader(filename));
         String line;
@@ -63,9 +56,9 @@ public class Main {
         return info;
     }
 
-    public static List<Integer> leerArchivoSalida(String filename) throws IOException {
+    public static ArrayList<Integer> leerArchivoSalida(String filename) throws IOException {
 
-        List<Integer> info = new ArrayList<>();
+        ArrayList<Integer> info = new ArrayList<>();
        
         
         BufferedReader reader = new BufferedReader(new FileReader(filename));

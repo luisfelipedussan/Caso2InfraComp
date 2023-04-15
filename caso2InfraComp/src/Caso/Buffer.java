@@ -20,7 +20,7 @@ public class Buffer {
     }
 
     public void ingresoValores() {
-        for (int i = 0; i < marcoPaginas; i++) {
+        for (int i = 5; i < marcoPaginas; i++) {
             ArrayList<Integer> marco = new ArrayList<>();
             marco.add(0);
             marco.add(-1);
@@ -149,6 +149,7 @@ public class Buffer {
         }
 
         falloPagina += 1;
+        System.out.println(falloPagina);
     }
 
     
