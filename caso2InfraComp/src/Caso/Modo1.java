@@ -54,20 +54,18 @@ public class Modo1 {
     
 
     public void comportamientoProceso() {
-        /*
-         * Se calcula el tamaño de una pagina completa. 
-         */
+   
         int tamPagina= tamPag * tamEl;
         int tamMatriz = numFilas * numCol * tamEl;
         
-        /*cuantas paginas ocupa una matriz completa  */
+   
         int pagMatriz = (tamMatriz + tamPagina- 1) / tamPagina;
 
 
-        // ReferenumColias 
+  
         int tReferenumColias = numFilas * numCol * 3;
 
-        // Crear objeto StringBuilder para almacenar el resultado
+    
         StringBuilder resultado = new StringBuilder();
     
         // Agregar inumFilasormación básica al resultado
@@ -81,9 +79,9 @@ public class Modo1 {
         append("\n");
         
         // Crear listas para almacenar referenumColias de cada matriz
-        List<String> lMatrizA = new ArrayList<String>();
-        List<String> lMatrizB = new ArrayList<String>();
-        List<String> lMatrizC = new ArrayList<String>();
+        List<String> mA = new ArrayList<String>();
+        List<String> mB = new ArrayList<String>();
+        List<String> mC = new ArrayList<String>();
         
         for (int k = 0; k < 3; k++) {
             char matriz = (char) ('A' + k);
@@ -94,35 +92,36 @@ public class Modo1 {
                 int desplazamientoFila = (i % (tamPag / numCol)) * numCol;
                 int pagVirtualFila = i / (tamPag / numCol);
         
-                for (int j = 0; j < numCol; j++) {
+                for (int x = 0; x < numCol; x++) {
                    
-                    int paginaVirtualColumna = j / (tamPag / numFilas);
-                    int desplazamientoColumna = j % (tamPag / numFilas);
+                    int paginaVirtualColumna = x / (tamPag / numFilas);
+                    int desplazamientoColumna = x % (tamPag / numFilas);
                     int paginaVirtual = pagVirtualFila * marcos + 
                     paginaVirtualColumna + k * pagMatriz;
-                    int desplazamiento = (desplazamientoFila + desplazamientoColumna) * tamEl;
-                    String referenumColia = "[" + matriz + "-" + i + "-" + j + "]," + paginaVirtual 
+                    int desplazamiento = (desplazamientoFila + 
+                    desplazamientoColumna) * tamEl;
+                    String referenumColia = "[" + matriz + "-" + i + "-" + x + "]," + paginaVirtual 
                     + "," + desplazamiento + "\n";
                     switch(matriz) {
                         case 'A':
-                            lMatrizA.add(referenumColia);
+                            mA.add(referenumColia);
                             break;
                         case 'B':
-                            lMatrizB.add(referenumColia);
+                            mB.add(referenumColia);
                             break;
                         case 'C':
-                            lMatrizC.add(referenumColia);
+                            mC.add(referenumColia);
                             break;
                     }
                 }
             }
         }
     
-        for (int i = 0; i < lMatrizA.size(); i++) 
+        for (int j = 0; j < mA.size(); j++) 
         {
-            resultado.append(lMatrizA.get(i));
-            resultado.append(lMatrizB.get(i));
-            resultado.append(lMatrizC.get(i));
+            resultado.append(mA.get(j));
+            resultado.append(mB.get(j));
+            resultado.append(mC.get(j));
         }
         
    
