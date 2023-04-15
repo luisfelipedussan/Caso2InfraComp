@@ -20,11 +20,16 @@ public class Buffer {
     }
 
     public void ingresoValores() {
-        for (int i = 0; i < marcoPaginas; i++) {
-            ArrayList<Integer> marco = new ArrayList<>();
-            marco.add(0);
-            marco.add(-1);
-            tablaMarcoPaginas.add(marco);
+        for (int i = 0; i < marcoPaginas; i++)  {
+        int page = -1; 
+        int timeSinceLastReference = 0; 
+
+        ArrayList<Integer> frame = new ArrayList<>();
+
+        frame.add(page);//page is in pos 0 within the internal tuples
+        frame.add(timeSinceLastReference);//time since last reference is in pos 1 within the internal tuple
+        tablaMarcoPaginas.add(frame);//adds tuple of frame to page frame table
+       
         }
     }
 
@@ -63,12 +68,12 @@ public class Buffer {
         }
     }
 
-    public ArrayList<Integer> traduccionOriginalFlat(ArrayList<Info> original){
+    public ArrayList<Integer> traduccionOriginalFlat(ArrayList<Integer> original){
 
         ArrayList<Integer> traduccion = new ArrayList<>();
 
         for (int i = 0; i < original.size(); i++) {
-            traduccion.add(original.get(i).getnumero());
+            traduccion.add(original.get(i));
         }
 
         return traduccion;
@@ -92,21 +97,23 @@ public class Buffer {
      }
 
     public void insertarPagina(int numeroPagina){
+       
         boolean monitor = true;
         int num = 0;
-
+        
+        //System.out.println(tabla.contains(numeroPagina));
         if(tabla.size()<marcoPaginas || tabla.contains(numeroPagina) == true){
-
+           
+            
             while(monitor == true && num < tablaMarcoPaginas.size()){
-
-                if(tablaMarcoPaginas.get(num).get(0) == -1){
+                
+                if(getPaginaMarcoTabla(num) == -1){
                     tablaMarcoPaginas.get(num).set(0, numeroPagina);
-                    tablaMarcoPaginas.get(num).set(1, 0);
                     tabla.add(numeroPagina);
                     monitor = false;
                 }
 
-                else if (tablaMarcoPaginas.get(num).get(0) == numeroPagina){
+                else if (getPaginaMarcoTabla(num) == numeroPagina){
                     tablaMarcoPaginas.get(num).set(1, 0);
                     monitor = false;
                 }
@@ -119,11 +126,13 @@ public class Buffer {
         }
 
         else{
+           
             errorPagina(numeroPagina);
         }
     }
 
     public void errorPagina(int numeroPagina){
+
         int num = 0;
         int indicado = 0;
 
@@ -149,8 +158,12 @@ public class Buffer {
         }
 
         falloPagina += 1;
-        System.out.println(falloPagina);
+        
     }
 
+
+    public int getPaginaMarcoTabla(int frame){
+        return  tablaMarcoPaginas.get(frame).get(0);
+    }
     
 }

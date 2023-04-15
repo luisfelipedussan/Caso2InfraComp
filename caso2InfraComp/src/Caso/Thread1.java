@@ -17,8 +17,9 @@ public class Thread1 extends Thread {
     @Override
 
     public void run() {
-
-        for (int i = 5; i<tabla.size(); i++){
+        //System.out.println(tabla);
+        for (int i = 4; i<tabla.size(); i++){
+            
             Integer referenciaPagina = tabla.get(i);
           
 
@@ -36,6 +37,7 @@ public class Thread1 extends Thread {
     public void actualizarTablaMarcoPagina(int referenciaPagina ) throws InterruptedException{
 
         buffer.añadirPagina(referenciaPagina);
+        //System.out.println(referenciaPagina);
         try{
             Thread.sleep(2);
         }

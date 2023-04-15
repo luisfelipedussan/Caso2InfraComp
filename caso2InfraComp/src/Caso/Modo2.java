@@ -12,7 +12,7 @@ public class Modo2 {
     private ArrayList<Integer> info;
     public Modo1 modo1;
     public Buffer buffer;
-    private ArrayList<ArrayList<Integer>> paginas;
+
 
     public Modo2(Integer marcos, ArrayList<Integer> info2) throws InterruptedException {
         this.marco = marcos;
@@ -22,7 +22,7 @@ public class Modo2 {
 
         Thread1 thread1 = new Thread1(buffer,info);
         Thread2 thread2 = new Thread2(buffer,thread1);
-       // System.out.println(info);
+        
          //Start the threads
          thread1.start();
          thread2.start();

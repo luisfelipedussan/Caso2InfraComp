@@ -19,7 +19,7 @@ public class Main {
 
 
         ArrayList<Integer> info2 = leerArchivoSalida("src/Caso/output.txt");
-        Modo2 modo2 = new Modo2(marcosPagina,info2);
+        new Modo2(marcosPagina,info2);
 
        
 
