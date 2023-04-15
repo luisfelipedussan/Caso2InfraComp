@@ -23,15 +23,15 @@ public class Modo2 {
         Thread1 thread1 = new Thread1(buffer,info);
         Thread2 thread2 = new Thread2(buffer,thread1);
         
-         //Start the threads
+
          thread1.start();
          thread2.start();
  
-         //Waits for both thread 1 and 2 to finish execution
+     
          thread1.join();
          thread2.join();
-      //Output report
-      option2ResultConsole();
+   
+        impresionConsola();
 
 
   }
@@ -40,7 +40,7 @@ public class Modo2 {
   // Methods
   //--------------------------------------------------------------------------
 
-  public void option2ResultConsole(){
+  public void impresionConsola(){
 
 
 
