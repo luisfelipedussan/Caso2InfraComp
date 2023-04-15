@@ -18,7 +18,7 @@ public class Thread1 extends Thread {
 
     public void run() {
 
-        for (int i = 0; i<tabla.size(); i++){
+        for (int i = 5; i<tabla.size(); i++){
             Integer referenciaPagina = tabla.get(i);
           
 

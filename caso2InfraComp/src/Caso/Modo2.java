@@ -20,11 +20,12 @@ public class Modo2 {
         Buffer buffer = new Buffer(marco);
         this.buffer = buffer;
 
-        Thread1 thread1 = new Thread1(buffer,info2);
+        Thread1 thread1 = new Thread1(buffer,info);
         Thread2 thread2 = new Thread2(buffer,thread1);
-
+       // System.out.println(info);
          //Start the threads
          thread1.start();
+         thread2.start();
  
          //Waits for both thread 1 and 2 to finish execution
          thread1.join();
